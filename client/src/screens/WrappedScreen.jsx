@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { Buffer } from 'buffer'
 import { useNavigate } from 'react-router'
 
+import Header from '../components/Header'
 import Wrapped from '../components/Wrapped'
 
 const WrappedScreen = () => {
@@ -59,6 +60,7 @@ const WrappedScreen = () => {
 
   return (
     <div>
+      {accessToken && <Header accessToken={accessToken} />}
       {accessToken && <Wrapped />}
     </div>
   )
