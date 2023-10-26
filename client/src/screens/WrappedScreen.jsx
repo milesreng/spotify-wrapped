@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import { Buffer } from 'buffer'
 import { useNavigate } from 'react-router'
 
+import Wrapped from '../components/Wrapped'
+
 const WrappedScreen = () => {
   const navigate = useNavigate()
 
@@ -40,20 +42,25 @@ const WrappedScreen = () => {
 
       const response = await fetch('https://accounts.spotify.com/api/token', payload).then(response => response.json())
 
-      console.log(response)
+      // console.log(response)
 
       localStorage.setItem('access_token', response.access_token)
       localStorage.setItem('refresh_token', response.refresh_token)
-
-      setAccessToken(response.access_token)
-      setRefreshToken(response.refresh_token)
     }
 
-    getToken(code)
+    if (localStorage.getItem('access_token') === null) {
+      getToken(code)
+      // console.log('got token')
+    }
+
+    setAccessToken(localStorage.getItem('access_token'))
+    setRefreshToken(localStorage.getItem('refresh_token'))
   }, [code])
 
   return (
-    <div>WrappedScreen</div>
+    <div>
+      {accessToken && <Wrapped />}
+    </div>
   )
 }
 

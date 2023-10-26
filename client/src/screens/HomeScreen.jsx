@@ -27,10 +27,10 @@ const HomeScreen = () => {
 
   auth_url.search = new URLSearchParams(loginParams).toString()
 
-  // useEffect(() => {
-  //   window.localStorage.removeItem('access_token')
-  //   window.localStorage.removeItem('refresh_token')
-  // }, [])
+  useEffect(() => {
+    window.localStorage.removeItem('access_token')
+    window.localStorage.removeItem('refresh_token')
+  })
 
   return (
     <div>
