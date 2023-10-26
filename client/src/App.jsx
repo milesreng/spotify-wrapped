@@ -11,6 +11,8 @@ function App() {
     const access = localStorage.getItem('access_token')
     if (access !== null) {
       setLoggedIn(true)
+    } else {
+      setLoggedIn(false)
     }
   }, [])
 
