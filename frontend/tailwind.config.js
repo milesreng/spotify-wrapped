@@ -26,7 +26,7 @@ export default {
       fontFamily: {
         'mono': ['mono'],
         'header': ['"Red Hat Display"', 'sans'],
-        'content': ['"Noto Sans', 'serif']
+        'content': ['"Noto Sans"', 'serif']
       },
     },
   },
